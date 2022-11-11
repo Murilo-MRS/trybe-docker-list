@@ -20,5 +20,5 @@ services:
     environment:
       - FRONT_HOST=todofront
     depends_on:
-      - todobackend
       - todofrontend
+      - todobackend
