@@ -2,10 +2,16 @@ FROM node:14-alpine
 
 WORKDIR /app
 
-ADD node_modules.tar.gz .
+EXPOSE 3000
+
+COPY package.json .
+
+COPY package-lock.json .
+
+RUN npm install
 
 COPY . .
 
-EXPOSE 3000
+ADD node_modules.tar.gz .
 
-ENTRYPOINT [ "npm", "start" ]
+CMD [ "npm", "start" ]
